@@ -4,10 +4,16 @@ function x = Sheet2Exercise3()
 %% 
   % Outputs:
   % Plots two functions for comparison
-  x = -pi:0.01:pi; 
+  function1 = @(x) cos(x);
+  function2 = @(x) (1/2)*(e.^(i*x)+ e.^(-i*x));
+  
+  limits = [-pi, pi];
   
   %% Plotting
-  plot(x, cos(x), 'r'); hold on;
-  plot(x, (1/2)*(exp(x*i) + e(x*i)), 'b');
+  subplot(2, 1, 1)
+  fplot(function1, limits)
+  subplot(2,1,2)
+  fplot(function2, limits)
+  #close all
   
 end
