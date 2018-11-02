@@ -1,20 +1,16 @@
 % FASP - Sheet2 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
-function [a, b] = Sheet2Exercise3(phi, radius)
+function z = Sheet2Exercise3(n)
 %% 
   % Inputs:
-  % phi = angle of the polar coordinates of a complex number
-  % radius = radius of the polar coordinates of a complex number
+  % n = natural number
   % Outputs:
-  % a = imaginary part of the complex number
-  % b = real part of the imaginary number
+  % z = all nth roots of unity up to n
   
-  a = sin(phi) * radius
-  b = cos(phi) * radius
-  
-  [a, b]
+  assert(n >= 1,'n >= 1');
+  z = roots([1 zeros(1,n-1) -1]); % Find the roots for the x^n - 1 = 0 function
   
   %% Plotting
-  plot([0 b], [0 a])
+  plot(z)
   
 end
