@@ -9,12 +9,15 @@ function [a, b] = Sheet2Exercise3(phi, radius)
   % a = imaginary part of the complex number
   % b = real part of the imaginary number
   
-  a = sin(phi) * radius
-  b = cos(phi) * radius
+  # a = i * sin(phi) * radius # For Octave
+  a = i * sin(sym(phi)) * radius # For Matlab
+  # b = cos(phi) * radius # For Octave
+  b = cos(sym(phi)) * radius # For Matlab
+  
   
   [a, b]
   
   %% Plotting
-  plot([0 b], [0 a])
+  plot([0 a + b])
   
 end
