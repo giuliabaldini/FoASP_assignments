@@ -20,6 +20,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xspace}
+\usepackage{tikz}
 
 %% Other
 \graphicspath{{Figures/}}
@@ -39,48 +40,106 @@
 
 \begin{document}
 	\maketitle
-	\section{Complex Numbers}
+	\section*{Exercise 2.1}
 	\textbf{a.}
 	\begin{alignat*}{3}
-		(4 − i) \cdot (2 + i) &= 8 + 4i - 2i - i^2\\
-		&= 8 + 2i - (\sqrt{-1})^2\\
-		&= 8 + 1 + 2i &= 9 + 2i
+		2e^{\frac{\pi}{2} i} (1 + i) &= 2 (\cos(\frac{\pi}{2}) + i\sin(\frac{\pi}{2}))(1 + i)\\
+		&= 2i (1 + i)\\
+		&= -2 + 2i\\
+		a &= -2\\
+		b &= 2\\
+		r &= \sqrt{(-2)^2 + (2)^2}\\
+		&= 2\sqrt{2}\\ 
 	\end{alignat*}
-	\textbf{b.}
+	Knowing that $a = \cos(\phi)$ and $b = \sin(\phi)$:
 	\begin{alignat*}{3}
-	(1 + 2i)^{-1} &= \frac{1}{(1 + 2i)} \cdot \frac{(1 - 2i)}{(1 - 2i)}\\
-	&= \frac{1 - 2i}{1 - (2i)^2}\\
-	&= \frac{1 - 2i}{1 + 4} &= \frac{1}{5} - \frac{2}{5} \cdot i
+	\cos(\phi) &= \frac{-2}{2\sqrt{2}} &= -\frac{\sqrt{2}}{2}\\
+	\sin(\phi) &= \frac{2}{2\sqrt{2}} &= \frac{\sqrt{2}}{2}\\
+	\phi &= \frac{3}{4}\pi\\
+	z &= 2 \sqrt{2} e^{\frac{3}{4}\pi i}
+	\end{alignat*}
+	\textbf{b.} Considering that $z = re^{\phi i}$, $\overline{z} = re^{-\phi i}$ and $|z| = r$
+	\begin{alignat*}{3}
+	z \overline{z} &= re^{\phi i} re^{- \phi i}\\
+	&= r^2 e^0 &= |z|^2\\
 	\end{alignat*}
 	\textbf{c.}
-	\begin{alignat*}
-	2 e^{2 \pi i} + e^{i \pi \frac{3}{2}} &= 2 \cdot (\cos(2 \pi) + i \cdot \sin(2\pi)) + (\cos(\frac{3}{2}\pi) + i \cdot \sin(\frac{3}{2}\pi))\\
-	&= 2 \cdot (1 + 0) + (0 + i \cdot -1) &= 2 - i
-	\end{alignat*}
-	\textbf{d.}
 	\begin{alignat*}{3}
-	4 \cdot \left(\frac{1 - i}{1 + i}\right)^2 &= 4 \cdot \frac{(1 - i)^2}{(1 + i)^2}\\
-	&= 4 \cdot \frac{1 -2i + i^2}{1 + 2i + i^2}\\
-	&= 4 \cdot \frac{1 -2i - 1}{1 + 2i + -1}\\
-	&= 4 \cdot \frac{1 -2i - 1}{1 + 2i + -1}\\
-	&= 4 \cdot \frac{-2i}{2i} &= - 4 + 0 i
+	\frac{1}{2i} (e^{ia} - e^{-ia}) &= \frac{1}{2i} (\cos(a) + i \sin(a) - (\cos(-a) + i \sin(-a)))\\
+	&= \frac{1}{2i} (\cos(a) + i \sin(a) - \cos(a) + i \sin(a))\\
+	&= \frac{1}{2i} (2 i \sin(a)) &= \sin(a)
 	\end{alignat*}
+	\section*{Exercise 2.2}
+	\textbf{a.}
+	For $n = 4$:
+	\begin{alignat*}{2}
+	\Omega^1_4 &= \cos(\frac{\pi}{2}) + i \sin (\frac{\pi}{2}) = i\\
+	\Omega^2_4 &= \cos(\pi) + i \sin (\pi) = -1\\
+	\Omega^3_4 &= \cos(3\frac{\pi}{2}) + i \sin (3\frac{\pi}{2}) = -i\\
+	\Omega^4_4 &= 1
+	\end{alignat*}
+	So the fourth roots of unity are ${1, -1, i, -i}$ and, since 4 is the smallest integer for which $\Omega = {i, -i}$, then these are its primitives.
+	\begin{figure}[H]
+	\def\n{4}
+	\centering
+	\begin{tikzpicture}[
+	dot/.style={draw,fill,circle,inner sep=1pt}
+	]
+	\draw[->] (-2,0) -- (2,0) node[below] {$\Re$};
+	\draw[->] (0,-2) -- (0,2) node[left] {$\Im$};
+	\draw[help lines] (0,0) circle (1);
+	
+	\node[dot,label={below right:$O$}] (O) at (0,0) {};
+	\foreach \i in {1,...,\n} {
+		\node[dot,label={\i*360/\n-(\i==\n)*45:$w_{\i}$}] (w\i) at (\i*360/\n:1) {};
+		\draw[->] (O) -- (w\i);
+	}
+	\draw[->] (0:.3) arc (0:360/\n:.3);
+	\node at (360/\n/2:.5) {$\alpha$};
+	\end{tikzpicture}
+	\caption{Illustration of all fourth roots of unity.}
+	\end{figure}
+	For $n = 6$:
+	\begin{alignat*}{2}
+	\Omega^1_6 &= \cos(\frac{\pi}{3}) + i \sin (\frac{\pi}{3}) = \frac{1}{2} + \frac{\sqrt{3}}{2}i\\
+	\Omega^2_6 &= \cos(2\frac{\pi}{3}) + i \sin (2\frac{\pi}{3}) = - \frac{1}{2} + \frac{\sqrt{3}}{2}i\\
+	\Omega^3_6 &= \cos(\pi) + i \sin (\pi) = -1\\
+	\Omega^4_6 &= \cos(4\frac{\pi}{3}) + i \sin (4\frac{\pi}{3}) = - \frac{1}{2} - \frac{\sqrt{3}}{2}i\\
+	\Omega^5_6 &= \cos(5\frac{\pi}{3}) + i \sin (5\frac{\pi}{3}) = \frac{1}{2} - \frac{\sqrt{3}}{2}i\\
+	\Omega^6_6 &= 1
+	\end{alignat*}
+	So the sixth roots of unity are ${1, -1, \frac{1}{2} + \frac{\sqrt{3}}{2}i, \frac{1}{2} - \frac{\sqrt{3}}{2}i, -\frac{1}{2} - \frac{\sqrt{3}}{2}i, \frac{1}{2} - \frac{\sqrt{3}}{2}i}$ and, since 4 is the smallest integer for which $\Omega = {- \frac{1}{2} + \frac{\sqrt{3}}{2}i, \frac{1}{2} + \frac{\sqrt{3}}{2}i}$, then these are its primitives.\\
+	\begin{figure}[H]
+	\def\n{6}
+	\centering
+	\begin{tikzpicture}[
+	dot/.style={draw,fill,circle,inner sep=1pt}
+	]
+	\draw[->] (-2,0) -- (2,0) node[below] {$\Re$};
+	\draw[->] (0,-2) -- (0,2) node[left] {$\Im$};
+	\draw[help lines] (0,0) circle (1);
+	
+	\node[dot,label={below right:$O$}] (O) at (0,0) {};
+	\foreach \i in {1,...,\n} {
+		\node[dot,label={\i*360/\n-(\i==\n)*45:$w_{\i}$}] (w\i) at (\i*360/\n:1) {};
+		\draw[->] (O) -- (w\i);
+	}
+	\draw[->] (0:.3) arc (0:360/\n:.3);
+	\node at (360/\n/2:.5) {$\alpha$};
+	\end{tikzpicture}
+	\caption{Illustration of all sixth roots of unity.}
+	\end{figure}
+	\textbf{b.}
 	\section{Matlab}
-	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.\\
-	Sample run of our program with two complex numbers:
-	\begin{flushleft}
-		\texttt{>> c1 = 3/4 + 2 * pi *i}\\
-		\texttt{c1 = 0.75000 + 6.28319i}\\
-		\texttt{>> c2 = 7 + (1/2)*i}\\
-		\texttt{c2 = 7.00000 + 0.50000i}\\
-		\texttt{>> Sheet1Exercise2(c1, c2)}\\
-		\texttt{prod = 2.1084 + 44.3573i}\\
-		\texttt{quot = 0.17039 + 0.88543i}
-	\end{flushleft}
-	In \autoref{plot} it is possible to see the result of our program with the above complex numbers.
+	\textbf{a-c.} The solutions can be found inside the \texttt{code} folder.\\
+	\begin{equation*}
+		\cos(\alpha) = \frac{1}{2} \cdot (e^{ia} + e^{-ia})
+	\end{equation*}
+	\iffalse
 	\begin{figure}[H]
 	\label{plot}
 	\includegraphics[width=\textwidth]{plot.pdf}
-	\caption{Representations of product and quotient of two given complex numbers.}
+	\caption{Visualization of the statement $\cos(\alpha) = \frac{1}{2} \cdot (e^{ia} + e^{-ia})$ }
 	\end{figure}
+	\fi
 \end{document}
