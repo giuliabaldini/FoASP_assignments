@@ -129,17 +129,25 @@
 	\end{tikzpicture}
 	\caption{Illustration of all sixth roots of unity.}
 	\end{figure}
-	\textbf{b.}
-	\section{Matlab}
-	\textbf{a-c.} The solutions can be found inside the \texttt{code} folder.\\
-	\begin{equation*}
-		\cos(\alpha) = \frac{1}{2} \cdot (e^{ia} + e^{-ia})
-	\end{equation*}
-	\iffalse
+	\textbf{b.} By definition of roots of unity
+	\begin{alignat*}{2}
+		\sum_{k = 0}^{n-1}\Omega_k &= \omega^0 + \omega^1 + \cdots + \omega^{n-1}
+	\end{alignat*}
+	where $\omega^k = e^{\frac{2 k \pi i}{n}}$. Since $\omega^0 = 1$, we can write the definition as a finite geometric series
+	\begin{alignat*}{2}
+	\sum_{k = 0}^{n-1} e^{\frac{2 k \pi i}{n}}&= \frac{1 - e^{\frac{2 n \pi i}{n}}}{1 - e^{\frac{2\pi i}{n}}}
+	\end{alignat*}
+	since $e^{\frac{2 n \pi i}{n}} = 1$, then 
+	\begin{alignat*}{3}
+	\sum_{k = 0}^{n-1} \Omega_k &= \frac{0}{1 - e^{\frac{2\pi i}{n}}} &= 0
+	\end{alignat*}
+	\section*{Exercise 2.3}
+	\textbf{a-c.} The solutions can be found inside the \texttt{code} folder.
 	\begin{figure}[H]
 	\label{plot}
-	\includegraphics[width=\textwidth]{plot.pdf}
-	\caption{Visualization of the statement $\cos(\alpha) = \frac{1}{2} \cdot (e^{ia} + e^{-ia})$ }
+	\centering
+	\includegraphics[width=27em]{3c.pdf}
+	\caption{Visualization of the statement $\cos(\alpha) = \frac{1}{2} \cdot (e^{i\alpha} + e^{-i\alpha})$ }
 	\end{figure}
-	\fi
+
 \end{document}
