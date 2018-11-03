@@ -15,19 +15,19 @@ function [primitives] = Sheet2Exercise3_2(n)
       if (j > l)
         roots_n(l, j) = 0 + 0*1i;
       else
-        roots_n(l, j) = cos(sym(2*pi*j)/l) + 1i*sin(sym(2*pi*j)/l);
+        roots_n(l, j) = cos((2*pi*j)/l) + 1i*sin((2*pi*j)/l);
       end
     end
   end
   
-  roots_n_n = roots_n(n,:)
+  roots_n_n = roots_n(n,:);
   primitives = [];
   prim_counter = 1;
   
   % Checking if each member in roots of N is primitive, i.e. is not a root in 
   % any previous roots 
   for k = 1:n
-    possible_primitive = roots_n_n(k)
+    possible_primitive = roots_n_n(k);
     is_primitive = 1;
     for j = 1:n-1
       for l = 1:n
@@ -46,8 +46,20 @@ function [primitives] = Sheet2Exercise3_2(n)
       end
   end
   
-  primitives
+  th = 0:pi/50:2*pi;
+  xunit = cos(th);
+  yunit = sin(th)*i;
   
+  units = xunit + yunit;
+  
+  hold on
+  plot(units)
+  title(strcat('Plot of primitive root units for n = ', int2str(n)))
+  plot(primitives, 'ro')
+  hold off
+  
+  
+  primitives
   
   
 end
