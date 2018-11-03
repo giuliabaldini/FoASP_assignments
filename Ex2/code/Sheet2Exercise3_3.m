@@ -1,11 +1,11 @@
 % FASP - Sheet2 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
-function x = Sheet2Exercise3()
+function Sheet2Exercise3_3()
 %% 
   % Outputs:
   % Plots two functions for comparison
   function1 = @(x) cos(x);
-  function2 = @(x) (1/2)*(e.^(i*x)+ e.^(-i*x));
+  function2 = @(x) (1/2)*(e.^(1i*x)+ e.^(-1i*x));
   
   limits = [-pi, pi];
   
@@ -14,6 +14,5 @@ function x = Sheet2Exercise3()
   fplot(function1, limits)
   subplot(2,1,2)
   fplot(function2, limits)
-  #close all
   
 end

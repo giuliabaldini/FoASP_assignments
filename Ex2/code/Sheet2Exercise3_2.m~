@@ -1,6 +1,6 @@
 % FASP - Sheet2 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
-function z = Sheet2Exercise3(n)
+function [roots_n roots_n_n] = Sheet2Exercise3_2(n)
 %% 
   % Inputs:
   % n = natural number
@@ -9,20 +9,19 @@ function z = Sheet2Exercise3(n)
   
   assert(n >= 1,'n >= 1');
 
-  
   % Getting all roots from 1 to n
   for l = 1:n 
     for j = 1:n  
       if (j > l)
-        roots_n(l, j) = 0 + 0*i;
+        roots_n(l, j) = 0 + 0*1i;
       else
-        roots_n(l, j) = cos(2*pi*j/l) + i*sin(2*pi*j/l);
+        roots_n(l, j) = cos(sym(2*pi*j)/l) + 1i*sin(sym(2*pi*j)/l);
       end
     end
   end
   
-  
-  roots_n_n = roots_n(n,:);
+  roots_n
+  roots_n_n = roots_n(n,:)
   primitives = [];
   prim_counter = 1;
   
@@ -42,9 +41,11 @@ function z = Sheet2Exercise3(n)
         break
       end
     end
-    if (is_primitive == 1) 
-      primitives(prim_counter) = possible_primitive;
-    end
+      if (is_primitive == 1) 
+            primitives(prim_counter) = possible_primitive;
+            prim_counter = prim_counter + 1;
+      end
+  
   end
   
   primitives
