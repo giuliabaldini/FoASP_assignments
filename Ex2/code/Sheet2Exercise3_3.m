@@ -5,7 +5,7 @@ function Sheet2Exercise3_3()
   % Outputs:
   % Plots two functions for comparison
   function1 = @(x) cos(x);
-  function2 = @(x) (1/2)*(e.^(1i*x)+ e.^(-1i*x));
+  function2 = @(x) (1/2)*(exp(1).^(1i*x)+ exp(1).^(-1i*x));
   
   limits = [-pi, pi];
   

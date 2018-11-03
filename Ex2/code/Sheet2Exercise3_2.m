@@ -15,7 +15,7 @@ function [primitives] = Sheet2Exercise3_2(n)
       if (j > l)
         roots_n(l, j) = 0 + 0*1i;
       else
-        roots_n(l, j) = cos((2*pi*j)/l) + 1i*sin((2*pi*j)/l);
+        roots_n(l, j) = cos(sym(2*pi*j)/l) + 1i*sin(sym(2*pi*j)/l);
       end
     end
   end

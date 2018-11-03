@@ -1,6 +1,6 @@
 % FASP - Sheet2 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
-function [a, b] = Sheet2Exercise3_1(phi, radius)
+function [c] = Sheet2Exercise3_1(phi, radius)
 %% 
   % Inputs:
   % phi = angle of the polar coordinates of a complex number
@@ -14,9 +14,11 @@ function [a, b] = Sheet2Exercise3_1(phi, radius)
   b = cos(sym(phi)) * radius;
   
   
-  [a, b]
+  c = complex(eval(a + b))
   
   %% Plotting
-  plot([0 a + b])
+  plot([0 c])
+  hold on
+  plot(c,"ro")
   
 end
