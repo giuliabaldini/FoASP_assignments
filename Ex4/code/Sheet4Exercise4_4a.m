@@ -1,7 +1,14 @@
 % FASP - Sheet4 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
 function Sheet4Exercise4_4a(duration, f_s, k, f_0)
-
+%% 
+  % Inputs:
+  % duration, duration in seconds of the chirp singal
+  % k, vector of k values according to the equation
+  % f_s, sampling frequency in Hertz
+  % f_0, vector of f_0 values according to the equation
+  % Outputs:
+  % plot of all the chirp signals
 t = linspace(0, duration, duration * f_s);
 
 plot_rows = length(k);

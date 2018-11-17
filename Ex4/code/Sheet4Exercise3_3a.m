@@ -1,6 +1,6 @@
 % FASP - Sheet4 - Giulia Baldini, Luis Fernandes, Agustin Vargas
 
-function [val] = Sheet4Exercise3(p)
+function Sheet4Exercise3_3a(p)
 %% 
   % Inputs:
   % p, real number or vector with real numbers
@@ -11,7 +11,7 @@ function [val] = Sheet4Exercise3(p)
   plotTitle = "Unit Circles with norms p = \{ ";
   for j = 1:length(p)
     plotTitle= strcat(plotTitle, num2str(p(j)));
-    if j != length(p)
+    if j ~= length(p)
       plotTitle= strcat(plotTitle, ',');
     end
   end
