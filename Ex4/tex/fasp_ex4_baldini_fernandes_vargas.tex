@@ -29,7 +29,7 @@
 \graphicspath{{Figures/}}
 \setlength\parindent{0pt}
 \newcommand{\auth}{Giulia Baldini, Luis Fernandes, Agustin Vargas Toro}
-\newcommand{\ass}{Assignment 3}
+\newcommand{\ass}{Assignment 4}
 
 %% Page settings
 \pagestyle{fancy}
@@ -56,15 +56,20 @@
 		\vert x - y \vert = \sqrt{(a_1 + b_1)^2 - (a_2 + b_2)^2} = \sqrt{(a_1 - a_
 			2)^2 + (b_1 - b_2)^2}
 	\end{equation*}
-	1. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} \geq 0$ holds.\\
-	2. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} = 0$ only if $a_1 = a_2$ and $b_1 = b_2$ so when $x=y$.\\
+	1. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} \geq 0$ holds, as the the square root of a positive number is always a positive number (resp. $\sqrt0 = 0$)\\
+	2. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} = 0$ only if $a_1 = a_2$ and $b_1 = b_2$, which is the case when $x=y$.\\
 	3. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} = \sqrt{(a_2 - a_1)^2 + (b_2 - b_1)^2}$\\
-	4. $\sqrt{(a_1 - a_3)^2 + (b_1 - b_3)^2} \leq \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} + \sqrt{(a_2 - a_3)^2 + (b_2 - b_3)^2}$
-	And according to Minkownsky Inequality
+	4. $d(x,y) + d(y,z) = \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} + \sqrt{(a_2 - a_3)^2 + (b_2 - b_3)^2}$
+	According to Minkowsky Inequality:
 	\begin{equation*}
 	\left(\sum _{{k=1}}^{n}|x_{k}+y_{k}|^{p}\right)^{{{\frac  {1}{p}}}}\leq \left(\sum _{{k=1}}^{n}|x_{k}|^{p}\right)^{{{\frac  {1}{p}}}}+\left(\sum _{{k=1}}^{n}|y_{k}|^{p}\right)^{{{\frac  {1}{p}}}}
 	\end{equation*}
-	If we consider the case with $p=2$, then our inequality holds.\\\\
+	If we consider the case with $p=2$ and $n=2$ (in our case $x_1 = (a_1 - a_2)$ and $x_2 = (b_1 - b_2)$ and similarly are $y_1$ and $y_2$ defined), then:
+	$$d(x,y) + d(y,z) \geq \sqrt{|x_1 + y_1|^2 + |x_2 + y_2|^2}  $$
+	Since in our case $x_k,y_k \in \mathbb{R}$:
+	$$d(x,y) + d(y,z) \geq \sqrt{(a_1 - a_2 + a_2 - a_3)^2 + (b_1 - b_2 + b_2 - b_3)^2}  $$
+	$$d(x,y) + d(y,z) \geq \sqrt{(a_1 - a_3)^2 + (b_1 - b_3)^2}  $$
+	$$d(x,y) + d(y,z)  \geq d(x,z)$$\\\\
 	\textbf{b.} $d(x,y) = \vert x \vert \cdot \vert y \vert$\\
 	In this case the second property ($d(x, y) = 0 \text{ iff } x = y$) does not hold because $d(x,y) = 0 \text{ with } x = 0 \text{ and } y = 2 - 5i$.\\\\
 	\textbf{c.} $d(x,y) = \begin{cases} 1 & x \neq y\\ 0 & \mbox{else} \end{cases}$\\
