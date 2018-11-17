@@ -45,13 +45,26 @@
 	\maketitle
 	\section*{Exercise 4.1}
 	\begin{alignat*}{3}
-	\Vert \sum_{j=1}^{n} x_j\Vert^2 &= \langle\sum_{j=1}^{n} x_j, \sum_{i=1}^{n} x_i\rangle & \text{ Scalar product norm definition}\\
-	&=\sum_{i, j=1}^{n} \langle x_j, x_i\rangle & \text{ Linearity of scalar product}\\
-	&=\sum_{j=1}^{n} \langle x_j, x_j\rangle & \text{ Ortogonality of $x_j$}\\
+	\Vert \sum_{j=1}^{n} x_j\Vert^2 &= \langle\sum_{j=1}^{n} x_j, \sum_{j=1}^{n} x_j\rangle & \text{ Scalar product norm definition}\\
+	&=\sum_{j=1}^{n} \langle x_j, x_j\rangle & \text{ Linearity of scalar product}\\
 	&=\sum_{j=1}^{n} \Vert x_j \Vert^2 & \text{ Scalar product norm definition}
 	\end{alignat*}
 	\section*{Exercise 4.2}
 	\textbf{a.} $d(x,y) = \vert x - y \vert$\\
+	Let $x = a_1 + b_1 i, y = a_2 + b_2 i, z = a_3 + b_3 i, \forall x, y, z \in \mathcal{C} $ then
+	\begin{equation*}
+		\vert x - y \vert = \sqrt{(a_1 + b_1)^2 - (a_2 + b_2)^2} = \sqrt{(a_1 - a_
+			2)^2 + (b_1 - b_2)^2}
+	\end{equation*}
+	1. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} \geq 0$ holds.\\
+	2. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} = 0$ only if $a_1 = a_2$ and $b_1 = b_2$ so when $x=y$.\\
+	3. $\sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} = \sqrt{(a_2 - a_1)^2 + (b_2 - b_1)^2}$\\
+	4. $\sqrt{(a_1 - a_3)^2 + (b_1 - b_3)^2} \leq \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} + \sqrt{(a_2 - a_3)^2 + (b_2 - b_3)^2}$
+	And according to Minkownsky Inequality
+	\begin{equation*}
+	\left(\sum _{{k=1}}^{n}|x_{k}+y_{k}|^{p}\right)^{{{\frac  {1}{p}}}}\leq \left(\sum _{{k=1}}^{n}|x_{k}|^{p}\right)^{{{\frac  {1}{p}}}}+\left(\sum _{{k=1}}^{n}|y_{k}|^{p}\right)^{{{\frac  {1}{p}}}}
+	\end{equation*}
+	If we consider the case with $p=2$, then our inequality holds.\\\\
 	\textbf{b.} $d(x,y) = \vert x \vert \cdot \vert y \vert$\\
 	In this case the second property ($d(x, y) = 0 \text{ iff } x = y$) does not hold because $d(x,y) = 0 \text{ with } x = 0 \text{ and } y = 2 - 5i$.\\\\
 	\textbf{c.} $d(x,y) = \begin{cases} 1 & x \neq y\\ 0 & \mbox{else} \end{cases}$\\
