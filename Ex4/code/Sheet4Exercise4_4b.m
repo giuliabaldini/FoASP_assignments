@@ -1,3 +1,5 @@
+% FASP - Sheet4 - Giulia Baldini, Luis Fernandes, Agustin Vargas
+
 f_s = 1000;
 duration = 5;
 f_0 = 0;
