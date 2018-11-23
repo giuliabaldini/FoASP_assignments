@@ -37,6 +37,12 @@
 \rhead{\auth}
 \lhead{\ass}
 \rfoot{\thepage}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\inte}{\mathbb{Z}}
+\newcommand{\liup}{\ensuremath{1}}
+\newcommand{\lido}{\ensuremath{0}}
+\newcommand{\liiup}{\ensuremath{\infty}}
+\newcommand{\liido}{\ensuremath{1}}
 
 \title{Foundations of Audio Signal Processing\\ \ass}
 \author{\auth}
@@ -44,9 +50,91 @@
 \begin{document}
 	\maketitle
 	\section*{Exercise 5.1}
-
+	\textbf{a.} The $L^1(\real)$ norm of $f$:
+	\begin{alignat*}{3}
+	\Vert f \Vert_1 &= \int_{\lido}^{\liup} \vert f(t) \vert dt\\
+	&= \int_{\lido}^{\liup} \frac{1}{\sqrt{t}} dt\\
+	&= \left| 2\sqrt{t} \right|^{\liup}_{\lido}\\
+	&= 2 - 0 &= 2
+	\end{alignat*}
+	The $L^2(\real)$ norm of $f$:
+	\begin{alignat*}{3}
+	\Vert f \Vert_2 &= \left(\int_{\lido}^{\liup} \vert f(t) \vert^2 dt\right)^\frac{1}{2}\\
+	&= \left(\int_{\lido}^{\liup} \frac{1}{t} dt\right)^\frac{1}{2}\\
+	&= \left(\left| \log(t) \right|^\liup_{\lido}\right)^\frac{1}{2}\\
+	&= \left(0 + \infty \right)^\frac{1}{2} &= \infty
+	\end{alignat*}
+	
+	
+	\textbf{b.} The $L^1(\real)$ norm of $g$:
+	\begin{alignat*}{3}
+	\Vert g \Vert_1 &= \int_{\liido}^{\liiup} \vert g(t) \vert dt\\
+	&= \int_{\liido}^{\liiup} \frac{1}{t} dt\\
+	&= \left| \log(t) \right|^\liiup_{\liido} \\
+	&= \infty  - 1 &= \infty
+	\end{alignat*}
+	The $L^2(\real)$ norm of $g$:
+	\begin{alignat*}{3}
+	\Vert g \Vert_2 &= \left(\int_{\liido}^{\liiup} \vert g(t) \vert^2 dt\right)^\frac{1}{2}\\
+	&= \left(\int_{\liido}^{\liiup} \frac{1}{t^2} dt\right)^\frac{1}{2}\\
+	&= \left(\left| -\frac{1}{t} \right|^\infty_{\liido}\right)^\frac{1}{2}\\
+	&= \left(-\frac{1}{\infty} + 1\right)^\frac{1}{2} &= 1
+	\end{alignat*}
+	
+	
+	
+	\section*{Exercise 5.2}
+	A signal is said to belong to the vector space $\ell^p(\inte)$ if $\Vert x(n)\Vert_p < \infty$.\\
+	\textbf{a.} $x(n) = e^n$\\
+	The $\ell^1$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_1 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert\\
+	&= \sum_{n \in \inte}^{\infty} e^n 
+	\end{alignat*}
+	The $\ell^2$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_2 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert^2\\
+	&= \sum_{n \in \inte}^{\infty} e^n 
+	\end{alignat*}
+	The $\ell^\infty$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_\infty &= \sup_{n \in \inte}\vert x(n) \vert\\
+	&=  \sup_{n \in \inte} e^n
+	\end{alignat*}
+	
+	\textbf{b.} $x(n) = e^{2\pi i n}$\\
+	The $\ell^1$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_1 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert\\
+	&= \sum_{n \in \inte}^{\infty} e^{2\pi i n}
+	\end{alignat*}
+	The $\ell^2$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_2 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert^2\\
+	&= \sum_{n \in \inte}^{\infty}  e^{2\pi i n} 
+	\end{alignat*}
+	The $\ell^\infty$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_\infty &= \sup_{n \in \inte}\vert x(n) \vert\\
+	&=  \sup_{n \in \inte} e^{2\pi i n}
+	\end{alignat*}
+	
+	\textbf{c.} $x(n) = \frac{1}{\sqrt{n}}, n > 0$\\
+	The $\ell^1$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_1 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert\\
+	&= \sum_{n \in \inte(0, \infty)}^{\infty} \frac{1}{\sqrt{n}}
+	\end{alignat*}
+	The $\ell^2$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_2 &= \sum_{n \in \inte}^{\infty} \vert x(n) \vert^2\\
+	&= \sum_{n \in \inte(0, \infty)}^{\infty} \frac{1}{\sqrt{n}}
+	\end{alignat*}
+	The $\ell^\infty$ norm:
+	\begin{alignat*}{3}
+	\Vert x(n) \Vert_\infty &= \sup_{n \in \inte}\vert x(n) \vert\\
+	&=  \sup_{n \in \inte(0, \infty)} \frac{1}{\sqrt{n}}
+	\end{alignat*}
 	\section*{Exercise 5.3}
-	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.
-	\section*{Exercise 5.4}
 	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.
 \end{document}
