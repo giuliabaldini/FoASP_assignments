@@ -23,8 +23,11 @@ function Sheet5Exercise3(w, c, t1, t2, n)
     real_values = real(values);
     
     scatter3(t, real_values, imag_values)
-    title(strcat("Discrete exponential with ", int2str(n(j)), samples ))
-    pause(1)
+    title(strcat("Discrete exponential with ", int2str(n(j)), " samples" ))
+    xlabel("Time [seconds]")
+    ylabel("Real axis")
+    zlabel("Imaginary axis")
+    pause(0.1)
   
   
   
