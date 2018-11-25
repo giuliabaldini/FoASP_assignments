@@ -50,9 +50,58 @@
 \begin{document}
 	\maketitle
 	\section*{Exercise 6.1}
-
-	\section*{Exercise 6.2}
-
+	\textbf{a.} $\hat{f'}(\omega) = 2 \pi i \omega \hat{f}(\omega)$\\
+	Using the integration by parts:
+	\begin{alignat*}{2}
+		u &= e^{-2\pi i \omega t}\\
+		du &= -2\pi i \omega e^{-2\pi i \omega t} dt\\
+		v &= f(t)\\
+		dv &= f'(t) dt
+	\end{alignat*}
+	\begin{alignat*}{2}
+		\hat{f'}(\omega) &= \int_{-\infty}^{\infty} f'(t) \cdot e^{-2\pi i \omega t} dt\\
+		&= \left[f(t) \cdot e^{-2\pi i \omega t}\right]_{-\infty}^{\infty} - \int_{-\infty}^{\infty} -2\pi i \omega \cdot f(t) e^{-2\pi i \omega t} dt\\
+		&= \left[f(t) \cdot e^{-2\pi i \omega t}\right]_{-\infty}^{\infty} + 2\pi i \omega  \int_{-\infty}^{\infty}  f(t) e^{-2\pi i \omega t} dt\\
+	\end{alignat*}
+	Since $f(t) \in L^2$ then:
+	\begin{alignat*}{2}
+	&= 2\pi i \omega \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt &= 2\pi i \omega \hat{f}(\omega)
+	\end{alignat*}
+	
+	\textbf{b.} $\hat{f'}(\omega) = - 2 \pi i \hat{g}(\omega)$
+	\begin{alignat*}{2}
+		\hat{f'}(\omega) &= \frac{d}{d\omega} \hat{f}(\omega)\\
+		&= \frac{d}{d\omega} \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
+		&= \int_{-\infty}^{\infty} \frac{d}{d\omega} (f(t)e^{-2\pi i \omega t})  dt\\
+		&= \int_{-\infty}^{\infty} (-2\pi i t) f(t)e^{-2\pi i \omega t}  dt\\
+		&= -2\pi i \int_{-\infty}^{\infty} t f(t)e^{-2\pi i \omega t}  dt\\
+		&= -2\pi i \int_{-\infty}^{\infty} g(t) e^{-2\pi i \omega t}  dt &= -2\pi i \hat{g}(\omega)
+	\end{alignat*}\\
+	\textbf{c.}
+	\begin{alignat*}{2}
+	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) + i \sin(2\pi\omega t)) dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) ) + \int_{-\infty}^{\infty} f(t)(i \sin(2\pi\omega t)) dt
+	\end{alignat*}
+	Since $f(t)$ is real, then the first integral is real too (because there are not any imaginary components) and the second integral is imaginary.\\\\
+	\textbf{d.} Assuming that $f(\omega)$ is real and even, it holds that $f(\omega) = f(-\omega)$, and for $\hat{f}$ to be even we need to prove that $\hat{f}(\omega) = \hat{f}(-\omega)$.
+	\begin{alignat*}{2}
+	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
+	&= \int_{-\infty}^{\infty} f(-t) e^{2\pi i \omega (-t)} dt
+	\end{alignat*}
+	We now substitute $-t$ with $u$:
+	\begin{alignat*}{2}
+	&= \int_{-\infty}^{\infty} f(u) e^{2\pi i \omega (u)} du\\
+	&= \int_{-\infty}^{\infty} f(u) e^{2\pi (-i) (-\omega) (u)} du\\
+	&= \int_{-\infty}^{\infty} f(u) e^{-2\pi i (-\omega) (u)} du &= \hat{f}(-\omega)
+	\end{alignat*}
+	We now have to prove that if $f(\omega)$ is real and even, $\hat{f}$ is real.
+	\begin{alignat*}{2}
+	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) + i \sin(2\pi\omega t)) dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) )
+	\end{alignat*}
+	which is real.
 	\section*{Exercise 6.3}
 	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.
 \end{document}
