@@ -78,12 +78,49 @@
 		&= -2\pi i \int_{-\infty}^{\infty} g(t) e^{-2\pi i \omega t}  dt &= -2\pi i \hat{g}(\omega)
 	\end{alignat*}\\
 	\textbf{c.}
+	We first prove that each function is composed by an even and odd part:
+	\begin{alignat*}{2}
+		f(t) &= \frac{1}{2} (f(t) + f(t) + f(-t) - f(-t))\\
+		&= \frac{1}{2} (f(t) + f(-t)) + \frac{1}{2} (f(t) - f(-t))\\
+		&= f_e(t) + f_o(t)
+	\end{alignat*}
+	$f_e$ is even because:
+	\begin{alignat*}{2}
+		f_e(t) &=  f(t) + f(-t)\\
+		&= f(-t) + f(t)\\
+		&= f_e(-t)
+	\end{alignat*}
+	$f_o$ is odd because:
+	\begin{alignat*}{2}
+		f_o(t) &=  f(t) - f(-t)\\
+		&= - (-f(t) + f(-t))\\
+		&= - f_o(-t)
+	\end{alignat*}
+	We now prove that the integral of the product of odd and even functions is 0:
+	\begin{alignat*}{2}
+		\int_{-\infty}^{\infty} f_e(t) f_o(t) dt &= \int_{-\infty}^{0} f_e(t) f_o(t) dt+ \int_{0}^{\infty} f_e(t) f_o(t) dt\\
+		&= \int_{0}^{\infty} f_e(-t) f_o(-t) dt+ \int_{0}^{\infty} f_e(t) f_o(t) dt\\
+		&= \int_{0}^{\infty} (f_e(-t) f_o(-t) + f_e(t) f_o(t)) dt\\
+		&= \int_{0}^{\infty} (f_e(-t) f_o(-t) - f_e(-t) f_o(-t)) dt &= 0
+	\end{alignat*}
+	Now we start proving that $Re(\hat{f})$ is even and $Re(\hat{f})$ is odd.
 	\begin{alignat*}{2}
 	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
-	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) + i \sin(2\pi\omega t)) dt\\
-	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) ) + \int_{-\infty}^{\infty} f(t)(i \sin(2\pi\omega t)) dt
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) - i \sin(2\pi\omega t)) dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) ) - \int_{-\infty}^{\infty} f(t)(i \sin(2\pi\omega t)) dt\\
 	\end{alignat*}
-	Since $f(t)$ is real, then the first integral is real too (because there are not any imaginary components) and the second integral is imaginary.\\\\
+	Now we can substitute $f(t)$ with $f_e(t) + f_o(t)$ and we obtain:
+	\begin{alignat*}{2}
+		&=\int_{-\infty}^{\infty} (f_e(t) + f_o(t))(\cos(2\pi\omega t) ) - \int_{-\infty}^{\infty} (f_e(t) + f_o(t))(i \sin(2\pi\omega t)) dt\\
+		&= \int_{-\infty}^{\infty} f_e(t)(\cos 2\pi\omega t) dt + \int_{-\infty}^{\infty} f_o(t)\cos(2\pi\omega t) dt -\\ 
+		&\int_{-\infty}^{\infty} f_e(t)i \sin(2\pi\omega t) dt - \int_{-\infty}^{\infty} f_o(t)i \sin(2\pi\omega t) dt
+	\end{alignat*}
+	Since $\cos$ is an even function and $\sin$ is an odd function, then we can delete the two middle elements, since they are integrals of a product of an odd and an even function.
+	\begin{alignat*}{2}
+		&= \int_{-\infty}^{\infty} f_e(t)\cos(2\pi\omega t) dt - \int_{-\infty}^{\infty} f_o(t)i \sin(2\pi\omega t) dt\\
+		&= \hat{f}_e(\omega) - \hat{f}_o(\omega)
+	\end{alignat*}
+	Since $f(t)$ is real, then $\hat{f}_e(\omega)$ is real too (because it does not contain any imaginary part) and $\hat{f}_o(\omega)$ is imaginary because it has an imaginary component.\\\\
 	\textbf{d.} Assuming that $f(\omega)$ is real and even, it holds that $f(\omega) = f(-\omega)$, and for $\hat{f}$ to be even we need to prove that $\hat{f}(\omega) = \hat{f}(-\omega)$.
 	\begin{alignat*}{2}
 	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
@@ -98,7 +135,7 @@
 	We now have to prove that if $f(\omega)$ is real and even, $\hat{f}$ is real.
 	\begin{alignat*}{2}
 	\hat{f}(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-2\pi i \omega t} dt\\
-	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) + i \sin(2\pi\omega t)) dt\\
+	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) - i \sin(2\pi\omega t)) dt\\
 	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) )
 	\end{alignat*}
 	which is real.
