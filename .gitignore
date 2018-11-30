@@ -252,4 +252,5 @@ TSWLatexianTemp*
 *-tags.tex
 
 # standalone packages
+.DS_store
 *.sta
