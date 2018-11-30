@@ -139,6 +139,27 @@
 	&= \int_{-\infty}^{\infty} f(t)(\cos(2\pi\omega t) )
 	\end{alignat*}
 	which is real.
-	\section*{Exercise 6.3}
-	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.
+	\section*{Exercise 6.2}
+	
+	\textbf{a.}
+	
+	$$\langle f | A_k \rangle = \sqrt{2}\int_{0}^{1} f(t)cos(2 \pi k t) dt$$ 
+	
+	$$ = \sqrt{2} \Bigg(\int_0^{1/2} -cos \left(t2 \pi k t\right)dt + \int_{1/2}^{1} cos \left(2 \pi k t\right) dt \Bigg) $$
+	
+	$$ = \sqrt{2} \Bigg[ \frac{-sin(2\pi k t)}{2 \pi k} \Bigg|^{1/2}_{0} + \frac{sin( 2 \pi k t}{2 \pi k} \Bigg|^{1}_{1/2} \bigg]$$
+	
+	$$ = \sqrt{2}\Bigg[ \frac{sin(2 \pi k)}{2 \pi k} - \frac{sin(\pi k)}{ \pi k} \Bigg]$$
+	
+	$$\langle f | B_k \rangle = \sqrt{2}\int_{0}^{1} f(t)sin(2 \pi k t) dt$$ 
+	
+	$$ = \sqrt{2} \Bigg[ \int^{1/2}_{0} -sin(2 \pi k t)dt + \int^{1}_{1/2}sin(2 \pi k)dt \Bigg] $$
+	
+	$$= sqrt{2} \Bigg[ \frac{cos(2 \pi k)}{2 \pi k} \Bigg|^{1/2}_{0} - \frac{cos(2 \pi k)}{2 \pi k}\Bigg|^{1}_{1/2} \Bigg]  $$
+	
+	$$ = \frac{\sqrt{2}}{n k} \Bigg[ \frac{cos(\pi k)}{2 \pi k} - \frac{1}{2 \pi k} - \frac{cos(2 \pi k)}{2 \pi k} + \frac{cos( \pi k) }{ 2 \pi k}  \Bigg]$$
+	
+	$$= \frac{\sqrt{2}}{\pi k} \Bigg[ cos(\pi k) - \frac{1}{2} - \frac{cos(2 \pi k)}{2}\Bigg]$$
+
+	\textbf{b-c.} The solutions can be found inside the \texttt{code} folder.
 \end{document}
