@@ -99,12 +99,12 @@
 	because $\overline{\hat{x}(\omega)} = \sum_{n \in \inte} \overline{x(n)} \cdot e^{2\pi i \omega n}$.
 	
 	
-	\textbf{e.} Time Reversal: $ \forall n, \text{ if } y(n) = x(-n) \text{ then } \hat{y}(\omega) = \hat{x}(-\omega)$
+	\textbf{e.} Time Reversal: $ \forall n, \text{ if } y(n) = x(-n) \text{ then } \hat{y}(\omega) = \hat{x}(-\omega), m = -n$
 	\begin{alignat*}{2}
 		\hat{y}(\omega) &= \sum_{n \in \inte} y(n) \cdot \een\\
 		&= \sum_{n \in \inte} x(-n) \cdot \een\\
-		&= \sum_{n \in \inte} x(n) \cdot e^{(-) \cdot -2\pi i \omega n}\\
-		&= \sum_{n \in \inte} x(n) \cdot e^{-2\pi i (-\omega) n}
+		&= \sum_{n \in \inte} x(m) \cdot e^{2\pi i \omega m}\\
+		&= \sum_{n \in \inte} x(m) \cdot e^{-2\pi i (-\omega) m}
 		&= \hat{x}(-\omega)
 	\end{alignat*}
 	\section*{Exercise 7.3}
