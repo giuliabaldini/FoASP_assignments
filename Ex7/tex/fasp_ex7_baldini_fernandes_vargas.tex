@@ -93,7 +93,8 @@
 	\begin{alignat*}{2}
 		\hat{y}(\omega) &= \sum_{n \in \inte} y(n) \cdot \een\\
 		&= \sum_{n \in \inte} \overline{x(n)} \cdot \een\\
-		&= \sum_{n \in \inte} \overline{x(n)} \cdot e^{2\pi i (-\omega) n}\\
+		&= \overline{\sum_{n \in \inte} x(n) \cdot e^{2\pi i \omega n}}\\
+		&= \overline{\sum_{n \in \inte} x(n) \cdot e^{-2\pi i (-\omega) n}}
 		&= \overline{\hat{x}(-\omega)}
 	\end{alignat*}
 	because $\overline{\hat{x}(\omega)} = \sum_{n \in \inte} \overline{x(n)} \cdot e^{2\pi i \omega n}$.
