@@ -52,17 +52,6 @@
 \begin{document}
 	\maketitle
 	\section*{Exercise 7.1}
-	
-	    Knowing that one of the properties of the Fourier Transform is:
-	    
-	    For $s\in \mathbb{R} $ the s-scaled version $t \rightarrow f(t/s)$ is also in $L^{2}(\mathbb{R}) $ and
-	    
-	    $$ \widehat{f(./s)}(\omega) = |s|\cdot \hat{f}(\omega s)$$
-	    
-	    We can conclude that the Fourier transform of the scaled function $ t \rightarrow f(t/s)$ for $s \in \mathbb{R}_{> 0}$ should be:
-	    
-	    \includegraphics[]{figure1.png}
-	    
 	\section*{Exercise 7.2}
 	\textbf{a.} Linearity: $\widehat{x(\omega) + y(\omega)} = \hat{x}(\omega) + \hat{y}(\omega)$
 	\begin{alignat*}{2}
@@ -108,6 +97,8 @@
 		&= \overline{\sum_{n \in \inte} x(n) \cdot e^{-2\pi i (-\omega) n}}
 		&= \overline{\hat{x}(-\omega)}
 	\end{alignat*}
+	because $\overline{\hat{x}(\omega)} = \sum_{n \in \inte} \overline{x(n)} \cdot e^{2\pi i \omega n}$.
+	
 	
 	\textbf{e.} Time Reversal: $ \forall n, \text{ if } y(n) = x(-n) \text{ then } \hat{y}(\omega) = \hat{x}(-\omega), m = -n$
 	\begin{alignat*}{2}
@@ -118,5 +109,5 @@
 		&= \hat{x}(-\omega)
 	\end{alignat*}
 	\section*{Exercise 7.3}
-	\textbf{a-b.} The solutions can be found inside the \texttt{code} folder.
+	\textbf{a-c.} The solutions can be found inside the \texttt{code} folder.
 \end{document}
