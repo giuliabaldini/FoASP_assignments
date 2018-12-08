@@ -77,3 +77,5 @@ function [tel_number] = Sheet7Exercise3(audio_path)
 
     %% Printing the number
     fprintf(strcat("Hey, I just met you,\nand this is crazy,\nbut here's my number: ", join(tel_number, ""), "\nso call me maybe!"))
+   
+endfunction   
