@@ -53,6 +53,46 @@
 	\maketitle
 	\section*{Exercise 9.1}
 	\section*{Exercise 9.2}
+	\subsection*{a} Upsampling operators are not time-invariant.\\
+	Consider
+	\begin{equation}
+		\uparrow M[x](n) = \begin{cases}
+		x(\frac{n}{M}), & \mbox{if } M\vert n\\ 
+		0, & \mbox{otherwise}
+		\end{cases}
+	\end{equation}
+	then
+	\begin{equation}
+		((\uparrow M)\circ T^k)[x](n) = \begin{cases}
+		x(\frac{n}{M} - k), & \mbox{if } M\vert n\\
+		0, & \mbox{otherwise}
+		\end{cases}
+	\end{equation}
+	but
+	\begin{equation}
+	(T^k \circ (\uparrow M))[x](n) = \begin{cases}
+	x(\frac{n-k}{M}), & \mbox{if } M\vert n\\
+	0, & \mbox{otherwise}
+	\end{cases}
+	\end{equation}
+	and since they are not equal, these operators are not time-invariant.
+	
+	\subsection*{b} Frequency-shift operators are time-invariant only in the $\omega = 0$ case.\\
+	Consider
+	\begin{equation}
+		E_\omega[x](n) = e^{-2\pi i \omega n} \cdot x(n), \omega \in [0,1]
+	\end{equation}
+	then
+	\begin{alignat}{2}
+		(T^k \circ E_\omega)[x](n) &= e^{-2\pi i \omega n \cdot (- k)} \cdot x(n-k)\\
+		&= e^{2\pi i \omega n k} \cdot x(n-k)
+	\end{alignat}
+	but
+	\begin{alignat}{2}
+		(E_\omega \circ T^k)[x](n) &= e^{-2\pi i \omega (n - k)} \cdot x(n-k)\\
+		&= e^{-2\pi i \omega n + 2\pi i \omega k} \cdot x(n-k)
+	\end{alignat}
+	and since they are not equal (except when $\omega=0$, where then they both become $1 \cdot x(n-k)$), these operators are not time invariant.
 	\section*{Exercise 9.3}
-	\subsection*{a-c.} The solutions can be found inside the \texttt{code} folder.
+	The solutions can be found inside the \texttt{code} folder.
 \end{document}
