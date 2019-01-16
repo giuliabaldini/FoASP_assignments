@@ -52,5 +52,35 @@
 \begin{document}
 	\maketitle
 	\section*{Exercise 11.1}
-	    \textbf{a.}
+	\textbf{a.}
+	\section*{Exercise 11.2}
+	\textbf{a.} Let us consider
+	\begin{equation*}
+	h(n) = 
+	\begin{cases} 
+	0.5 &\text{if } n \in \{0,1\},\\
+	0 & \text{otherwise}.
+	\end{cases}
+	\end{equation*}
+	\begin{equation*}
+	g(n) = 
+	\begin{cases} 
+	0.5 &\text{if } n = 0,\\
+	- 0.5 &\text{if } n = 1,\\
+	0 & \text{otherwise}.
+	\end{cases}
+	\end{equation*}
+	and 
+	\begin{equation*}
+		\sum_{N-1}^{n=0} q^n = \frac{1-q^N}{1-q}
+	\end{equation*}
+	and the fact that $N=2$ because we are considering a Haar lowpass-filter, then the frequency response $H^2$ can be written as:
+	\begin{alignat*}{3}
+		H^2 (\omega) &= \sum_{N-1}^{n=0} \frac{1}{N} \cdot \een\\
+		&= \frac{1-e^{-2\pi i \omega N}}{1 - e^{-2\pi i \omega n}}\\
+		&= \frac{1}{N} \cdot \frac{e^\frac{2\pi i \omega N}{2} - e^\frac{-2\pi i \omega N}{2}}{e^\frac{2\pi i \omega}{2} - e^\frac{-2\pi i \omega}{2}} \cdot \frac{e^\frac{-2\pi i \omega N}{2}}{e^\frac{-2\pi i \omega}{2}}\\
+		&= \frac{1}{N} \cdot \frac{\sin(\pi \omega N)}{\sin(\pi \omega)} \cdot e^\frac{2\pi i \omega (N-1)}{2}\\
+		&= \frac{1}{2} \cdot \frac{\sin(2\pi \omega)}{\sin(\pi \omega)} \cdot e^\frac{2\pi i \omega}{2}\\
+		&= \frac{1}{2} \cdot \frac{0}{\sin(\pi \omega)} \cdot e^\frac{2\pi i \omega}{2} &= 0
+	\end{alignat*}
 \end{document}
